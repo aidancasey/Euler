@@ -11,8 +11,12 @@ namespace ProblemSolver
     {
         static void Main(string[] args)
         {
-            Problem1.Solve();
-            Problem1.SolveNerdyWay();
+
+            var problem = new EulerProblems.Problem2();
+            problem.Solution_First_Attempt();
+
+            problem.Soluion_More_Readable();
+            
             Console.ReadLine();
         }
     }
