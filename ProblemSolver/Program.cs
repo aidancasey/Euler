@@ -12,10 +12,9 @@ namespace ProblemSolver
         static void Main(string[] args)
         {
 
-            var problem = new EulerProblems.Problem2();
-            problem.Solution_First_Attempt();
+            var problem = new Problem3();
+            problem.Solve();
 
-            problem.Soluion_More_Readable();
             
             Console.ReadLine();
         }
