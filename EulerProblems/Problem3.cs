@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EulerProblems
 {
-    public class Problem3
+    public class Problem3 : IProblem 
     {
         //The prime factors of 13195 are 5, 7, 13 and 29.
         //
@@ -17,17 +19,12 @@ namespace EulerProblems
         //them pump them thru and return find the largest ones with a mod 0
         //time to loop was too long
 
-        //approach 2 -after some googling I found out that a prime factor is always less than the square root of a number :)
 
-   
-
-        public void Approach_1_Solve()
+        public void Approach_1_BruteForce_Solve()
         {
-
-            long number = 13195;
-
+            long number = 600851475143;
             var primeNumbers = GeneratePrimeNmubers(number / 2);
-
+           
             primeNumbers.Reverse();
 
             foreach (long i in primeNumbers)
@@ -38,37 +35,31 @@ namespace EulerProblems
                     break;
                 }
             }
-
         }
 
 
-        public void Solve()
+        public void Approach_2_Refined_With_SquareRoot_Clause()
         {
-
             long number = 600851475143;
-         
-
-
             for (var j = (Math.Round( Math.Sqrt(number),0) +1);j>=2; j--)
             {
-                Console.WriteLine("trying " + j.ToString());
-
                 if (IsPrimeNumber((long)j))
                 {
-                    Console.WriteLine("testing prime no " + j.ToString());
-                    if (number % j == 0)
+                   if (number % j == 0)
                     {
                         Console.WriteLine("largest prime factor of " + number + " is " + j.ToString());
                         break;
                     }
-                    
                 }
-
             }
         }
 
-
-        public List<long> GeneratePrimeNmubers(long maxNumber)
+        public string Solve()
+        {
+             return Factors.GetFactors(600851475143).ToList().Where(x => x.IsPrime()).OrderBy(x => x).Last().ToString();
+        }
+        
+        private List<long> GeneratePrimeNmubers(long maxNumber)
         {
             List<long> allPrimeNumbers = new List<long>();
 
@@ -76,7 +67,6 @@ namespace EulerProblems
             {
                 if (IsPrimeNumber(i))
                 {
-                    Console.WriteLine(i.ToString());
                     allPrimeNumbers.Add(i);
                 }
             }

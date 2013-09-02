@@ -8,14 +8,16 @@ using System.Threading.Tasks;
 namespace EulerProblems
 {
 
-    public class Problem1
+    public class Problem1 : IProblem
     {
 
-        public static void Solve()
+        //If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+        //Find the sum of all the multiples of 3 or 5 below 1000
+
+
+        //brute force
+        public string  Solve()
         {
-            //If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-            //Find the sum of all the multiples of 3 or 5 below 1000
-            Stopwatch timer = Stopwatch.StartNew();
 
             int sum = 0;
             for (int i = 0; i<1000; i++)
@@ -33,25 +35,15 @@ namespace EulerProblems
                 }
 
             }
-            timer.Stop();
-
-            Console.WriteLine(sum.ToString());
-            Console.WriteLine("time taken  " + timer.ElapsedTicks + "ticks ");
-
+            return sum.ToString();
         }
 
 
-        //super nerdy way
+        //smarter way
         //see http://www.mathblog.dk/project-euler-problem-1/
-        public static void SolveNerdyWay()
+        public static void Solve_Smarter()
         {
-            Stopwatch timer = Stopwatch.StartNew();  
             var result = SumDivisbleBy(3,999)+SumDivisbleBy(5,999)-SumDivisbleBy(15,999);
-            timer.Stop();
-
-            Console.WriteLine(result.ToString());
-            Console.WriteLine("time taken  " + timer.ElapsedTicks + "ticks ");
-
         }
  
         
