@@ -19,6 +19,8 @@ namespace EulerProblems
 
         public string Solve()
         {
+            return SolveLinq();
+
            // get all pallindromes less than 1000 * 1000 in size
             List<int> pallindromeNums = Pallindromes.GetPalindromeNumbers(6).OrderByDescending(x => x).ToList();
                       
@@ -44,6 +46,19 @@ namespace EulerProblems
           //numbers must be below the square root of the number
             return "couldn't solve problem";
         }
+
+        public string  SolveLinq()
+        {
+            var factors = Enumerable.Range(100, 900);
+            var max = factors
+               .SelectMany(x => factors.Select(y => x * y))
+               .Where(x => x.ToString().Reverse().SequenceEqual(x.ToString()))
+               .Max();
+
+            return max.ToString();
+
+        }
+
         #endregion
     }
 }
