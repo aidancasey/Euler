@@ -8,6 +8,8 @@ namespace EulerProblems
 {
     public static class Factors
     {
+
+
         public static IEnumerable<long> GetFactors(long number)
         {
             var factors = new List<long> { 1, number };
@@ -28,12 +30,13 @@ namespace EulerProblems
                     if (!factors.Contains(end))
                     {
                         factors.Add(end);
-                    }                   
+                    }
                 }
                 factor++;
             }
             return factors;
         }
+
 
     }
 }

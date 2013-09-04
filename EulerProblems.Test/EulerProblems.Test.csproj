@@ -53,6 +53,7 @@
     <Compile Include="GetFactors_Test.cs" />
     <Compile Include="PrimeNumberTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PallindromeNumbers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EulerProblems\EulerProblems.csproj">

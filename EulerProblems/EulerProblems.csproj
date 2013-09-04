@@ -41,10 +41,12 @@
   <ItemGroup>
     <Compile Include="Extensions\PrimeNumbers.cs" />
     <Compile Include="Helpers\Factors.cs" />
+    <Compile Include="Helpers\Pallindromes.cs" />
     <Compile Include="IProblem.cs" />
     <Compile Include="Problem1.cs" />
     <Compile Include="Problem2.cs" />
     <Compile Include="Problem3.cs" />
+    <Compile Include="Problem4.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
