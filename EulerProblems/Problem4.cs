@@ -19,7 +19,8 @@ namespace EulerProblems
 
         public string Solve()
         {
-            return SolveLinq();
+        //    return SolveLinq();
+            return SolveAnotherWay();
 
            // get all pallindromes less than 1000 * 1000 in size
             List<int> pallindromeNums = Pallindromes.GetPalindromeNumbers(6).OrderByDescending(x => x).ToList();
@@ -57,6 +58,30 @@ namespace EulerProblems
 
             return max.ToString();
 
+        }
+
+
+        public string SolveAnotherWay()
+        {
+            int largestNumber = 0;
+            for (int x = 100; x <= 1000; x++)
+            {
+                for (int y = 100; y <= 1000; y++)
+                {
+                    int result = x * y;
+                    string resultString = result.ToString();
+
+                    if (Pallindromes.Reverse(resultString) == resultString)
+                    {
+                        if (result > largestNumber)
+                        {
+                            largestNumber = result;
+                        }
+
+                    }
+                }
+            }   
+            return largestNumber.ToString();
         }
 
         #endregion

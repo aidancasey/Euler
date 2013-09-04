@@ -23,7 +23,7 @@ namespace EulerProblems.Helpers
             return pallindromeNumbers;
         }
 
-        private static string Reverse(string stringRepresentation)
+        public static string Reverse(string stringRepresentation)
         {
             var charArray = stringRepresentation.ToCharArray();
             Array.Reverse(charArray);
