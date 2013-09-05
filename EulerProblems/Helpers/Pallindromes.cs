@@ -17,17 +17,10 @@ namespace EulerProblems.Helpers
 
             for (int i = 10; i <= maxNumber; i++)
             {
-                if (i.ToString() == Reverse(i.ToString()))
+                if (i.ToString() == Utils.Reverse(i.ToString()))
                     pallindromeNumbers.Add(i);
             }
             return pallindromeNumbers;
-        }
-
-        public static string Reverse(string stringRepresentation)
-        {
-            var charArray = stringRepresentation.ToCharArray();
-            Array.Reverse(charArray);
-            return new string(charArray);
         }
 
     }

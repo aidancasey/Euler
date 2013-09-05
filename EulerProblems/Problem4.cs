@@ -71,7 +71,7 @@ namespace EulerProblems
                     int result = x * y;
                     string resultString = result.ToString();
 
-                    if (Pallindromes.Reverse(resultString) == resultString)
+                    if (Utils.Reverse(resultString) == resultString)
                     {
                         if (result > largestNumber)
                         {

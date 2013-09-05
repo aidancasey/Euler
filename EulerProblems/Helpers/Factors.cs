@@ -37,6 +37,27 @@ namespace EulerProblems
             return factors;
         }
 
+        public static IEnumerable<int> GetUniqueFactorsUpNumber(int number)
+        {
+            var allfactors = Enumerable.Range(2, number-1).ToList();
+            var uniquefactors = Enumerable.Range(2, number-1).ToList();
+
+
+            foreach (int x in allfactors)
+            { 
+                for (int i = 0; i <= uniquefactors.Count-1;i++ )
+                {
+                    int y = uniquefactors[i];
+                    if ((y != x) && (y % x == 0))
+                    {
+                        uniquefactors.Remove(y);
+                        i--;
+                    }
+                }
+            }
+            return uniquefactors;
+        }
+
 
     }
 }
