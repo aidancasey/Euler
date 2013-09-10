@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EulerProblems.Helpers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 

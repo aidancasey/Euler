@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace EulerProblems
 {
@@ -35,7 +30,7 @@ namespace EulerProblems
                 }
 
             }
-            return sum.ToString();
+            return sum.ToString(CultureInfo.InvariantCulture);
         }
 
 
@@ -51,7 +46,6 @@ namespace EulerProblems
         {
             return n * (p / n) * ((p / n) + 1) / 2;
         }
-
 
     }
 }

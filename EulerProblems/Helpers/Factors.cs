@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EulerProblems
+namespace EulerProblems.Helpers
 {
     public static class Factors
     {
@@ -57,6 +54,36 @@ namespace EulerProblems
             }
             return uniquefactors;
         }
+        public static IEnumerable<int> GetUniqueFactorsUpNumber1(int number)
+        {
+            List<int> primes = new List<int>();
+            bool isPrime;
+            int j;
+
+            primes.Add(2);
+
+            for (int i = 3; i <= number; i += 2)
+            {
+                j = 0;
+                isPrime = true;
+                while (primes[j] * primes[j] <= i)
+                {
+                    if (i % primes[j] == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                    j++;
+                }
+                if (isPrime)
+                {
+                    primes.Add(i);
+                }
+            }
+
+            return primes;
+        }
+
 
 
     }

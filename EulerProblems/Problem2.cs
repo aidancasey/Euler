@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +59,7 @@ namespace EulerProblems
 
             }while (nextNumber<4000000);
 
-            return total.ToString();
+            return total.ToString(CultureInfo.InvariantCulture);
         }
 
         private int Fibonacci(int sequenceNumber)

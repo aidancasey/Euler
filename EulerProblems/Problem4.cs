@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using EulerProblems.Helpers;
-using System.Linq;
 
 namespace EulerProblems
 {
@@ -20,7 +16,7 @@ namespace EulerProblems
         public string Solve()
         {
         //    return SolveLinq();
-            return SolveAnotherWay();
+         //   return SolveAnotherWay();
 
            // get all pallindromes less than 1000 * 1000 in size
             List<int> pallindromeNums = Pallindromes.GetPalindromeNumbers(6).OrderByDescending(x => x).ToList();
@@ -28,9 +24,9 @@ namespace EulerProblems
             int result = 0;
 
             // for each one check if a numers between 100->1000  divide in evenly
-            foreach (int number in pallindromeNums)
+            foreach (var number in pallindromeNums)
             {
-                for (int i = 1000; i >= 100; i--)
+                for (var i = 1000; i >= 100; i--)
                 {
                     if ((number % i) == 0)
                     {

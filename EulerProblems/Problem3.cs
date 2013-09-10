@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using EulerProblems.Extensions;
+using EulerProblems.Helpers;
 
 namespace EulerProblems
 {
@@ -22,32 +21,29 @@ namespace EulerProblems
 
         public void Approach_1_BruteForce_Solve()
         {
-            long number = 600851475143;
+            const long number = 600851475143;
             var primeNumbers = GeneratePrimeNmubers(number / 2);
            
             primeNumbers.Reverse();
 
-            foreach (long i in primeNumbers)
+            foreach (var i in primeNumbers.Where(i => number % i == 0))
             {
-                if (number % i == 0)
-                {
-                    Console.WriteLine("largest prime factor is " + i.ToString());
-                    break;
-                }
+                Console.WriteLine("largest prime factor is " + i.ToString(CultureInfo.InvariantCulture));
+                break;
             }
         }
 
 
         public void Approach_2_Refined_With_SquareRoot_Clause()
         {
-            long number = 600851475143;
+            const long number = 600851475143;
             for (var j = (Math.Round( Math.Sqrt(number),0) +1);j>=2; j--)
             {
                 if (IsPrimeNumber((long)j))
                 {
                    if (number % j == 0)
                     {
-                        Console.WriteLine("largest prime factor of " + number + " is " + j.ToString());
+                        Console.WriteLine("largest prime factor of " + number + " is " + j.ToString(CultureInfo.InvariantCulture));
                         break;
                     }
                 }
@@ -61,7 +57,7 @@ namespace EulerProblems
         
         private List<long> GeneratePrimeNmubers(long maxNumber)
         {
-            List<long> allPrimeNumbers = new List<long>();
+            var allPrimeNumbers = new List<long>();
 
             for (long i = 1; i <= Math.Sqrt(maxNumber); i++)
             {
