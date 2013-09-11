@@ -7,7 +7,7 @@ using EulerProblems.Helpers;
 
 namespace EulerProblems
 {
-    public class Problem3 : IProblem 
+    public class Problem3 : ISolveProblemManyWays  
     {
         //The prime factors of 13195 are 5, 7, 13 and 29.
         //
@@ -19,7 +19,7 @@ namespace EulerProblems
         //time to loop was too long
 
 
-        public void Approach_1_BruteForce_Solve()
+        public string Solve()
         {
             const long number = 600851475143;
             var primeNumbers = GeneratePrimeNmubers(number / 2);
@@ -28,13 +28,14 @@ namespace EulerProblems
 
             foreach (var i in primeNumbers.Where(i => number % i == 0))
             {
-                Console.WriteLine("largest prime factor is " + i.ToString(CultureInfo.InvariantCulture));
+                return i.ToString(CultureInfo.InvariantCulture);
                 break;
             }
+            return null;
         }
 
 
-        public void Approach_2_Refined_With_SquareRoot_Clause()
+        public string AlgebraSolve()
         {
             const long number = 600851475143;
             for (var j = (Math.Round( Math.Sqrt(number),0) +1);j>=2; j--)
@@ -43,14 +44,15 @@ namespace EulerProblems
                 {
                    if (number % j == 0)
                     {
-                        Console.WriteLine("largest prime factor of " + number + " is " + j.ToString(CultureInfo.InvariantCulture));
+                       return j.ToString(CultureInfo.InvariantCulture);
                         break;
                     }
                 }
             }
+            return null;
         }
 
-        public string Solve()
+        public string LinqSolve()
         {
              return Factors.GetFactors(600851475143).ToList().Where(x => x.IsPrime()).OrderBy(x => x).Last().ToString();
         }

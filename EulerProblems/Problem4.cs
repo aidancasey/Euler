@@ -4,7 +4,7 @@ using EulerProblems.Helpers;
 
 namespace EulerProblems
 {
-    public class Problem4 : IProblem
+    public class Problem4 : ISolveProblemManyWays 
     {
         #region IProblem Members
 
@@ -15,11 +15,10 @@ namespace EulerProblems
 
         public string Solve()
         {
-        //    return SolveLinq();
-         //   return SolveAnotherWay();
+
 
            // get all pallindromes less than 1000 * 1000 in size
-            List<int> pallindromeNums = Pallindromes.GetPalindromeNumbers(6).OrderByDescending(x => x).ToList();
+            List<int> pallindromeNums = Numbers.GetPalindromeNumbers(6).OrderByDescending(x => x).ToList();
                       
             int result = 0;
 
@@ -44,7 +43,7 @@ namespace EulerProblems
             return "couldn't solve problem";
         }
 
-        public string  SolveLinq()
+        public string  LinqSolve()
         {
             var factors = Enumerable.Range(100, 900);
             var max = factors
@@ -57,7 +56,7 @@ namespace EulerProblems
         }
 
 
-        public string SolveAnotherWay()
+        public string AlgebraSolve()
         {
             int largestNumber = 0;
             for (int x = 100; x <= 1000; x++)

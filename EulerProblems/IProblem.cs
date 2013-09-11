@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EulerProblems
+﻿namespace EulerProblems
 {
     public interface IProblem
     {
         string Solve();
+    }
+
+    public interface ISolveProblemManyWays : IProblem
+    {
+        string LinqSolve();
+        string AlgebraSolve();
+
     }
 }

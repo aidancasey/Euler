@@ -3,7 +3,7 @@
 namespace EulerProblems
 {
 
-    public class Problem1 : IProblem
+    public class Problem1 : ISolveProblemManyWays
     {
 
         //If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
@@ -36,9 +36,10 @@ namespace EulerProblems
 
         //smarter way
         //see http://www.mathblog.dk/project-euler-problem-1/
-        public static void Solve_Smarter()
+        public  string  AlgebraSolve()
         {
             var result = SumDivisbleBy(3,999)+SumDivisbleBy(5,999)-SumDivisbleBy(15,999);
+            return result.ToString(CultureInfo.InvariantCulture);
         }
  
         
@@ -46,6 +47,18 @@ namespace EulerProblems
         {
             return n * (p / n) * ((p / n) + 1) / 2;
         }
+
+
+        #region IProblem Members
+
+
+        public string LinqSolve()
+        {
+            return "not implemeneted";
+        }
+
+
+        #endregion
 
     }
 }
