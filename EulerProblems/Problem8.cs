@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace EulerProblems
 {
@@ -13,14 +14,9 @@ namespace EulerProblems
 
         public string LinqSolve()
         {
-            
-
-            return Enumerable.Range(0, numberSequence.Length/5)
-                      .Select(i => numberSequence.Substring(i*5, 5))
-                      .Select(x => x[0]*x[1]*x[2]*x[3]*x[4]).OrderByDescending(x=>x).First().
-            ToString();
-
-
+            //Linq aggregate, don't ya just love it !
+            return Enumerable.Range(0, numberSequence.Length -4).Select(i =>numberSequence.Substring(i, 5).AsEnumerable().Select(c => int.Parse(c.ToString())).Aggregate((c, n) => c * n))
+                          .Max().ToString();
         }
 
         public string AlgebraSolve()
@@ -36,22 +32,20 @@ namespace EulerProblems
         public string Solve()
         {
             int largestTotal = 0;
-            string sequence = "";
 
-            for (int i = 0; i <= numberSequence.Length-5; i+=5 )
+            for (int i = 0; i < numberSequence.Length-4; i++ )
             {
-                string chunk = numberSequence.Substring(i, 5);
-
-                int total = chunk[0]*chunk[1]*chunk[2]*chunk[3]*chunk[4];
+                int total = int.Parse(numberSequence.Substring(i, 1)) * int.Parse(numberSequence.Substring(i+1, 1))
+                    * int.Parse(numberSequence.Substring(i + 2, 1)) * int.Parse(numberSequence.Substring(i + 3, 1))
+                    * int.Parse(numberSequence.Substring(i + 4, 1));
 
                 if (total > largestTotal)
                 {
                     largestTotal = total;
-                    sequence = chunk;
                 }
             }
 
-            return "number is " + largestTotal.ToString() + "  sequence is" + sequence;
+            return largestTotal.ToString();
         }
 
         #endregion
