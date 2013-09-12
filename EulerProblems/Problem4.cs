@@ -46,13 +46,8 @@ namespace EulerProblems
         public string  LinqSolve()
         {
             var factors = Enumerable.Range(100, 900);
-            var max = factors
-               .SelectMany(x => factors.Select(y => x * y))
-               .Where(x => x.ToString().Reverse().SequenceEqual(x.ToString()))
-               .Max();
-
-            return max.ToString();
-
+            var maxlargestPallindrome = factors.SelectMany(x => factors.Select(y => x * y)).Where(x => x.ToString().Reverse().SequenceEqual(x.ToString())).Max();
+            return maxlargestPallindrome.ToString();
         }
 
 
